@@ -2,17 +2,18 @@
     <div id="app">
         <img id="logo" alt="DC HEROES" src="./assets/dc_heroes_logo.png">
         <h2>DC Heroes count: {{heroesCount}}</h2>
-        <div class="hero-list">
-            <ul>
-                <li  v-for="(hero,index) in state.dcHeroes" :key="hero.name">
-                    <div>{{hero.name}} <button @click="deleteHero(index)">x</button></div>
+        <div  class="container hero-list">
+            <ul class="list-group ">
+                <li  class="list-group-item d-flex justify-content-between" v-for="(hero,index) in state.dcHeroes" :key="hero.name">
+                    <div class="ml-5">{{hero.name}}</div>
+                    <div><button class="btn btn-danger mr-5" @click="deleteHero(index)">x</button></div>
                 </li>
             </ul>
         </div>
-        <div class="add-hero">
-            <form @submit.prevent="addHero">
+        <div class="add-hero mt-4">
+            <form class="" @submit.prevent="addHero">
                 <input v-model="state.newHero" placeholder="Heroin" />
-                <button>Add Hero</button>
+                <button class="btn btn-primary ml-1 ">Add Hero</button>
             </form>
         </div>
     </div>
@@ -20,6 +21,7 @@
 
 <script>
     import {reactive, computed} from 'vue';
+
 
     export default {
         name: 'App',
